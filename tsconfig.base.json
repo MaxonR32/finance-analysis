@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@full/material": ["libs/material/src/index.ts"],
+      "@full/auth": ["libs/auth/src/index.ts"],
+      "@full/client/profile": ["libs/client/profile/src/index.ts"],
+      "@full/f-profile": ["libs/f-profile/src/index.ts"],
+      "@full/components": ["libs/components/src/index.ts"],
+      "@full/site-layout-component": [
+        "libs/site-layout-component/src/index.ts"
+      ],
+      "@full/b-auth": ["libs/b-auth/src/index.ts"],
+      "@full/core": ["libs/core/src/index.ts"],
+      "@full/gql": ["libs/gql/src/index.ts"],
+      "@full/b-profile": ["libs/b-profile/src/index.ts"],
+      "@full/upload-file": ["libs/upload-file/src/index.ts"],
+      "@full/f-add-action": ["libs/f-add-action/src/index.ts"],
+      "@full/f-list-page": ["libs/f-list-page/src/index.ts"],
+      "@full/b-list": ["libs/b-list/src/index.ts"],
+      "@full/f-analytics": ["libs/f-analytics/src/index.ts"],
+      "@full/b-analytics": ["libs/b-analytics/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

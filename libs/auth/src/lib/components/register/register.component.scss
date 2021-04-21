@@ -1,0 +1,14 @@
+.form {
+	display: flex;
+  	justify-content: center;
+  	margin-top: 40px;
+}
+
+.elem-form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+}
+mat-label {
+	color: #1C82FF;
+}

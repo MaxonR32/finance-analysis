@@ -1,0 +1,58 @@
+<div class="form">
+			  	<form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+		  		  	<div class="elem-form">
+	  		  		<h2>Register Form</h2>
+			  		  <mat-form-field appearance="fill">
+					    <mat-label>Enter your email</mat-label>
+					    	<input formControlName="email" matInput id="email" name="email" placeholder="pat@example.com"  required>
+					    	
+					    	<mat-error *ngIf="email.invalid && email.touched">
+					    		<mat-error *ngIf="email.errors.required">Email must not be empty</mat-error>
+				   				<mat-error *ngIf="email.errors.email">Email not corectly</mat-error>
+					    	</mat-error>
+					 	</mat-form-field>
+
+					 	<mat-form-field appearance="fill">
+					 		<mat-label>Enter your name</mat-label>
+					    	<input formControlName="name" matInput id="name" name="name" placeholder="Alex" required>
+					    	
+					    	<mat-error *ngIf="name.invalid && name.touched">
+					    		<mat-error *ngIf="name.errors.required">Name must not be empty</mat-error>
+					    		<mat-error *ngIf="name.errors.pattern">Name must not containes a number</mat-error>
+					    	</mat-error>
+					 	</mat-form-field>
+
+					 	<mat-form-field appearance="fill">
+						  <mat-label>Date of born</mat-label>
+						  <input formControlName="date" matInput [matDatepicker]="dp">
+						  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+						  <mat-datepicker #dp startView="multi-year" panelClass="example-month-picker">
+						  </mat-datepicker>
+						</mat-form-field>
+
+					    <mat-form-field appearance="fill">
+						    <mat-label>Enter your password</mat-label>
+						    <input formControlName="password" passwordConfirm="password" pass="event.target.value" name="pR" matInput type="password" required>
+						   
+						    <mat-error *ngIf="password.invalid && password.touched">
+						    	<mat-error *ngIf="password.errors.required">Password must not be empty</mat-error>
+						    	<mat-error *ngIf="password.errors.minlength && password.errors.minlength.requiredLength">Min length of password is {{password.errors.minlength.requiredLength}}. Now you password have {{password.errors.minlength.actualLength}}</mat-error>
+						    </mat-error>
+						</mat-form-field>
+
+						
+
+						<mat-form-field appearance="fill">
+						    <mat-label>Repeat password</mat-label>
+						    <input  formControlName="passwordRepeat" passwordConfirm matInput id="passwordRepeat" name="passwordRepeat"  type="password" required>
+						   
+						    <mat-error *ngIf="passwordRepeat.invalid && passwordRepeat.touched">
+						    	<mat-error *ngIf="passwordRepeat.errors.required">Password must not be empty</mat-error>
+						    	<mat-error *ngIf="passwordRepeat.errors.minlength && passwordRepeat.errors.minlength.requiredLength">Min length of password is {{passwordRepeat.errors.minlength.requiredLength}}. Now you password have {{passwordRepeat.errors.minlength.actualLength}}</mat-error>
+						    </mat-error>
+			    			<span *ngIf="passwordRepeat.touched && passwordRepeat.value != password.value" class="error">Password dont match</span>
+						</mat-form-field>
+						<button type="submit" [disabled]="registerForm.invalid || registerForm.disabled || passwordRepeat.value != password.value" color="warn" mat-raised-button>Submit</button>
+					</div>
+			  	</form>
+		  	</div>

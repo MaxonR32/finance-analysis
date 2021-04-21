@@ -1,0 +1,22 @@
+module.exports = {
+  projects: [
+    '<rootDir>/apps/client',
+    '<rootDir>/apps/api',
+    '<rootDir>/libs/material',
+    '<rootDir>/libs/auth',
+    '<rootDir>/libs/client/profile',
+    '<rootDir>/libs/f-profile',
+    '<rootDir>/libs/components',
+    '<rootDir>/libs/site-layout-component',
+    '<rootDir>/libs/b-auth',
+    '<rootDir>/libs/core',
+    '<rootDir>/libs/gql',
+    '<rootDir>/libs/b-profile',
+    '<rootDir>/libs/upload-file',
+    '<rootDir>/libs/f-add-action',
+    '<rootDir>/libs/f-list-page',
+    '<rootDir>/libs/b-list',
+    '<rootDir>/libs/f-analytics',
+    '<rootDir>/libs/b-analytics',
+  ],
+};

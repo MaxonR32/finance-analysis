@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="exit-button">
+		<button mat-icon-button color="warn" (click)="close()"><mat-icon>clear</mat-icon></button>	
+	</div>
+	<div class="form">
+		<form [formGroup]="changeForm" (ngSubmit)="submitChange()">
+		  	<div class="elem-form">
+		  		<h2>Change Form</h2>
+				
+			
+	
+			  	<mat-form-field appearance="fill">
+			    	<mat-label>Enter your new name</mat-label>
+			    	<input  formControlName="name" matInput id="name" name="name" placeholder="Boris" required>
+			    	
+			    	<mat-error *ngIf="name.invalid && name.touched">
+			    		<mat-error *ngIf="name.errors.required">Name must not be empty</mat-error>
+			    	</mat-error>
+			 	</mat-form-field>
+
+			    <mat-form-field appearance="fill">
+				    <mat-label>Enter your Job</mat-label>
+				    <input  formControlName="job" matInput type="text" required>
+				   
+				    <mat-error *ngIf="job.invalid && job.touched">
+				    	<mat-error *ngIf="job.errors.required">Job must not be empty</mat-error>
+				    </mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					  <mat-label>Choose a date</mat-label>
+					  <input formControlName="date" matInput [matDatepicker]="picker">
+					  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					  <mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>	
+				<button type="submit" [disabled]="changeForm.invalid || changeForm.disabled " color="warn" mat-raised-button>Submit</button>
+			</div>
+		</form>	
+	</div>
+	
+</div>

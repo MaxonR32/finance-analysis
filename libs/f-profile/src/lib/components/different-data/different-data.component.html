@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="left">
+		<h2>Days before the end of the month</h2>
+		 <mat-progress-spinner
+	        [color]="colorSpinner"
+	        [mode]="modeSpinner"
+	        [value]="percentBeforeEndMonth"
+	        >
+	    </mat-progress-spinner>
+    	<div class="days-end-month">{{dayNow}}</div>
+    	<div class="data-for-spinner">
+    		<ul type="disc">
+    			<li class="days1"><p  class="passed">Days passed</p></li>
+    			<li class="days2"><p class="passed">Days left</p></li>
+    		</ul>
+    	</div>
+	</div>
+	<div class="center">
+		<h2>Level of Actions</h2>
+
+      	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+		  <!--- Note that these columns can be defined in any order.
+		        The actual rendered columns are set as a property on the row definition" -->
+
+		  <!-- Position Column -->
+		  <ng-container matColumnDef="name">
+		    <th mat-header-cell *matHeaderCellDef> Name </th>
+		    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+		  </ng-container>
+
+		  <!-- Name Column -->
+		  <ng-container matColumnDef="line">
+		    <th mat-header-cell *matHeaderCellDef> Line </th>
+		    <td mat-cell *matCellDef="let element">
+		    	<mat-progress-bar
+	     	     [mode]="modeBar"
+	     	     [value]="element.average"
+	     	     [bufferValue]="bufferValueBar">
+	      		</mat-progress-bar>
+		    </td>
+		  </ng-container>
+
+		  <!-- Weight Column -->
+		  <ng-container matColumnDef="profit">
+		    <th mat-header-cell *matHeaderCellDef> Profit </th>
+		    <td mat-cell *matCellDef="let element"> {{element.profit}} </td>
+		  </ng-container>
+
+		  <ng-container matColumnDef="nonProfit">
+		    <th mat-header-cell *matHeaderCellDef> Non Profit </th>
+		    <td mat-cell *matCellDef="let element"> {{element.nonProfit}} </td>
+		  </ng-container>
+
+		 <ng-container matColumnDef="average">
+		    <th mat-header-cell *matHeaderCellDef> Porcent </th>
+		    <td mat-cell *matCellDef="let element"> {{element.average}} </td>
+		  </ng-container>
+
+
+		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+
+	</div>
+	<div class="right">
+		<h2>Your funds</h2>
+		<p class="num1">46</p>
+	</div>
+
+</div>
