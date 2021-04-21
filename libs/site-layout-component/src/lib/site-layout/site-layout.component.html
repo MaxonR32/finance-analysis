@@ -1,0 +1,56 @@
+<mat-drawer-container class="example-container" autosize>
+  <!-- Navbar -->
+  <mat-toolbar color="primary">
+     <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <span>My Application</span>
+</mat-toolbar>
+  
+
+<!-- SideBar -->
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button> -->
+    <div class="nice">
+      <div class="block-link">
+      <div class="other-link" *ngFor="let link of links">
+        <a class="link-left-bar" mat-button [routerLink]="[link.url]"><mat-icon>{{link.img}}</mat-icon>{{link.name}}</a>
+      </div>
+      <div class="link-exit">
+        <a class="link-left-bar exit" mat-flat-button (click)="logout($event)">Exit</a>              
+      </div>
+    </div>  
+    </div>
+  </mat-drawer>
+
+  <!-- <div class="example-sidenav-content">
+    
+  </div> -->
+<div class="container">
+  <router-outlet></router-outlet>
+  <div class="btn-link" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <div [@btnLinkHover]="animateMod">
+      <div *ngIf="changeText" class="hover-btn">
+        <p>
+          <a routerLink="/new" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+           <mat-icon>bookmark</mat-icon>
+          </a>
+        </p>
+        <p>
+          <a routerLink="/list" mat-mini-fab id="btn-links" color="accent" aria-label="Example icon button with a plus one icon">
+           <mat-icon>menu</mat-icon>
+          </a>  
+        </p>    
+      </div>  
+    </div>
+    
+    <button mat-fab  color="warn" aria-label="Example icon button with a home icon">
+      <mat-icon>home</mat-icon>
+    </button> 
+  </div> 
+</div>
+</mat-drawer-container>  
+

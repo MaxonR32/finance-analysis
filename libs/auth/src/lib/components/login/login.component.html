@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="top">
+		<mat-tab-group>
+		  <mat-tab label="Login">
+			<div class="form block">
+				<form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+				  	<div class="elem-form">
+				  		<h2>Login Form</h2>
+						  <mat-form-field appearance="fill">
+					    	<mat-label>Enter your email</mat-label>
+					    	<input formControlName="email" matInput id="email" name="email" placeholder="pat@example.com" required>
+					    	
+					    	<mat-error *ngIf="email.invalid && email.touched">
+					    		<mat-error *ngIf="email.errors.required">Email must not be empty</mat-error>
+				   				<mat-error *ngIf="email.errors.email">Email not corectly</mat-error>
+					    	</mat-error>
+					 	</mat-form-field>
+
+					    <mat-form-field appearance="fill">
+						    <mat-label>Enter your password</mat-label>
+						    <input formControlName="password" matInput type="password" required>
+						   
+						    <mat-error *ngIf="password.invalid && password.touched">
+						    	<mat-error *ngIf="password.errors.required">Password must not be empty</mat-error>
+						    	<mat-error *ngIf="password.errors.minlength && password.errors.minlength.requiredLength">Min length of password is {{password.errors.minlength.requiredLength}}. Now you password have {{password.errors.minlength.actualLength}}</mat-error>
+						    </mat-error>
+						</mat-form-field>
+						<button type="submit" [disabled]="loginForm.invalid || loginForm.disabled " color="warn" mat-raised-button>Submit</button>
+					</div>
+				</form>
+			</div>
+		  </mat-tab>
+		  <mat-tab label="Registration">
+		  	<div class="block">
+			  	<full-register></full-register>	  		
+		  	</div>
+		  </mat-tab>
+		</mat-tab-group>
+	</div>
+</div>
+

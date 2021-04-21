@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserModel {
+  name: String!
+  email: String!
+  job: String!
+  date: Date!
+  password: String!
+  imageSrc: String!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type UserToken {
+  token: String!
+  user: UserModel!
+}
+
+type ProfileModel {
+  message: String!
+}
+
+type Query {
+  uptime: Float!
+  login(input: AuthLoginInput!): UserToken!
+  getProfileData: ProfileModel!
+}
+
+input AuthLoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  register(input: AuthRegisterInput!): UserToken!
+}
+
+input AuthRegisterInput {
+  name: String!
+  password: String!
+  email: String!
+  job: String
+  date: Date!
+  image: String
+}

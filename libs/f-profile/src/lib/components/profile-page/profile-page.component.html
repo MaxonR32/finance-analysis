@@ -1,0 +1,74 @@
+<!-- <full-toolbar></full-toolbar>
+<full-sidenav></full-sidenav>	 -->
+<div class="container">
+	<div class="top">
+		<h3>Profile page</h3>
+		<div class="buttons">
+			<button mat-raised-button *ngIf="image !== undefined" (click)="saveImg()" color="accent">SAVE</button>
+			<button mat-raised-button (click)="openModal()" id="fond-button" color="primary">FOND</button>
+			<button mat-raised-button (click)="logout()" color="warn">EXIT</button>
+		</div>
+	</div>
+	<div class="personal-data block">
+		<div class="sub-personal-data">
+			<input type="file" (change)="onFileUpload($event)" class="dn" #input>
+			<img id="img" [src]="imagePreview" (click)="triggerClick()" alt="">
+			<div class="data-name" *ngIf="user != null; else loader">
+				<h2>{{user.name}} | {{user.date | date: 'YYYY'}}</h2>
+				<p>{{user.job}}</p>
+			</div>	
+		</div>
+		
+		<div class="number-data" *ngIf="average$ | async as average; else loader">
+			<p class="num1">{{average.nProfitV}}</p> 
+			<span class="num1">|</span>
+			<p class="num2">{{average.profitV}}</p>
+		</div>
+	</div>
+	<div class="center block">
+		<div class="list-of-members" *ngIf="lists.length; else noMembers">
+			<mat-list *ngFor="let member of lists" role="list">
+			  	<mat-list-item role="listitem">
+		  			<p>
+		  				{{member.name}}
+		  				{{member.who}} 
+		  				{{member.date | date: 'YYYY'}}
+		  				<button (click)="openModalConfirmDelete(member.name, member._id)" mat-mini-fab color="warn" class="delete-button">
+	        	  			<mat-icon>delete</mat-icon>
+	        			</button>
+	        		</p>
+	    		</mat-list-item>
+			</mat-list>		
+		</div>
+		<div class="add-new">
+			<form [formGroup]="formMember" (ngSubmit)="submitFormMember()">
+				<div class="add-new-inputs">
+					<mat-form-field appearance="outline">
+				  		<mat-label>Name</mat-label>
+				  		<input formControlName="name" matInput type="text">
+			  		</mat-form-field>
+			  		<mat-form-field appearance="outline">
+			  			<mat-label>Who</mat-label>
+				  		<input formControlName="who" matInput type="text">
+			  		</mat-form-field>
+			  		<mat-form-field appearance="fill">
+					  <mat-label>Choose a date</mat-label>
+					  <input formControlName="date" matInput [matDatepicker]="picker">
+					  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					  <mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>	
+				</div>
+	  			<button type="submit" [disabled]="formMember.invalid" mat-raised-button color="accent">Add new Member</button>				
+			</form>
+		</div>
+	</div>
+	<div class="block different-data-block">
+		<full-different-data></full-different-data>
+	</div>
+</div>
+
+<ng-template #noMembers>
+		<p>You don't add members</p>
+</ng-template>
+
+<ng-template #loader><app-loader></app-loader></ng-template>  	

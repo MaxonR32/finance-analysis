@@ -1,0 +1,39 @@
+{
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "full",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+    }
+  },
+  "projects": {
+    "client": { "tags": [] },
+    "client-e2e": { "tags": [], "implicitDependencies": ["client"] },
+    "api": { "tags": [] },
+    "material": { "tags": [] },
+    "auth": { "tags": [] },
+    "client-profile": { "tags": [] },
+    "f-profile": { "tags": [] },
+    "components": { "tags": [] },
+    "site-layout-component": { "tags": [] },
+    "b-auth": { "tags": [] },
+    "core": { "tags": [] },
+    "gql": { "tags": [] },
+    "b-profile": { "tags": [] },
+    "upload-file": { "tags": [] },
+    "f-add-action": { "tags": [] },
+    "f-list-page": { "tags": [] },
+    "b-list": { "tags": [] },
+    "f-analytics": { "tags": [] },
+    "b-analytics": { "tags": [] }
+  }
+}

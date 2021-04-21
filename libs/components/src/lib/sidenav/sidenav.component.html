@@ -1,0 +1,16 @@
+<button (click)="drawer.toggle()">Sliep</button>
+<mat-drawer-container class="example-container" autosize>
+<mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="nice">
+      <div class="block-link">
+      <div class="other-link" *ngFor="let link of links">
+        <a class="link-left-bar" mat-button [routerLink]="[link.url]"><mat-icon>{{link.img}}</mat-icon>{{link.name}}</a>
+      </div>
+      <div class="link-exit">
+        <a class="link-left-bar exit" mat-flat-button (click)="logout($event)">Exit</a>              
+      </div>
+    </div>  
+    </div>
+</mat-drawer>
+</mat-drawer-container>
+ 

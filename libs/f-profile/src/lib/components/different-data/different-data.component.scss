@@ -1,0 +1,56 @@
+ * {
+	color: #ccc;
+ }
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	.left {
+		mat-progress-bar {
+			height: 7px;
+			width: 75%;
+			border-radius: 10px;
+		} 
+		.days-end-month {
+			position:relative; 
+			top: -60px; 
+			left: 28px;
+			font-size: 1.8rem;
+		}
+		.days1 {
+			color: #3F51B5;
+			font-size: 25px;
+
+		}
+
+		.days2 {
+			color: silver;
+			font-size: 25px;
+		}
+
+		.passed {
+			font-size: 20px;
+			color: black;
+		}
+	}
+
+	.center {
+		width: 500px;
+		table {
+			width: 90%;
+			background-color: #2B3545;
+		}
+	}
+	
+	
+
+	.right {
+		.num1 {
+			font-size: 3rem;
+			font-family: 'Titillium Web', sans-serif;
+			color: silver;
+			padding-right: 15px;
+		}
+	}
+}
