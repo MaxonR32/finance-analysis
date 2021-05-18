@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ProgressBarMode } from '@angular/material/progress-bar';
+import { DifferentDataService } from '../../services/differetn-data.service'
+import { AnalyticsMember, DataOfDay } from '../../interfaces/interface'
 
 @Component({
   selector: 'full-different-data',
   templateUrl: './different-data.component.html',
   styleUrls: ['./different-data.component.scss']
 })
-export class DifferentDataComponent implements OnInit {
+export class DifferentDataComponent implements OnInit, OnChanges {
 
     ELEMENT_DATA: any[] = []
 
@@ -26,24 +28,34 @@ export class DifferentDataComponent implements OnInit {
     dayNow: number
     resData
 
-		displayedColumns: string[] = ['name', 'line', 'profit', 'nonProfit', 'average']
+		displayedColumns: string[] = ['name', 'line', 'profit', 'consumValue', 'average']
 	  dataSource = this.ELEMENT_DATA
 
+     @Input() valueMember: AnalyticsMember[]
+     @Input() dataOfDay: DataOfDay
+
   constructor(
-      // private analyticsGqlService: AnalyticsGqlServices
-   ) { }
+      private analyticsService: DifferentDataService
+   ) {
+    
+  }
+
+ 
 
   ngOnInit(): void {
-    // this.analyticsGqlService.getAdditionlInfoProfile().subscribe(
-    //   ({data}) => {
-    //     this.resData = data
-    //     console.log('resData', this.resData)
-        
-    //     this.percentBeforeEndMonth = this.resData.additionallyInformationProfitle.percentBeforeEndMonth
-    //     this.dayNow = this.resData.additionallyInformationProfitle.day
-    //     this.dataSource = [...this.resData.additionallyInformationProfitle.finishedArray]
-    //   }
-    // )
+
+  }
+
+  ngOnChanges() {
+    this.dataSource = this.valueMember
+  }
+
+
+
+  close() {
+    // console.log(this.valueMember)
+    this.dataSource = this.valueMember
+    console.log(this.dataSource)
   }
 
 }

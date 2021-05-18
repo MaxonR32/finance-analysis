@@ -20,8 +20,8 @@ import { MatNativeDateModule } from '@angular/material/core'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatGridListModule } from '@angular/material/grid-list'
-import { MatCheckboxModule } from '@angular/material/checkbox'; 
-
+import { MatCheckboxModule } from '@angular/material/checkbox' 
+import { MatRadioModule } from '@angular/material/radio'
 
 @NgModule({
   imports: [
@@ -46,7 +46,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatBottomSheetModule,
     MatPaginatorModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ],
   exports: [
     MatTabsModule,
@@ -69,7 +70,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatBottomSheetModule,
     MatPaginatorModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
     ]
 })
 export class MaterialModule { }

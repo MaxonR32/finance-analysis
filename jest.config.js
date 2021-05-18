@@ -18,5 +18,6 @@ module.exports = {
     '<rootDir>/libs/b-list',
     '<rootDir>/libs/f-analytics',
     '<rootDir>/libs/b-analytics',
+    '<rootDir>/libs/ngrx',
   ],
 };

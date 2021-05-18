@@ -9,6 +9,8 @@ import { MaterialService } from '@full/material'
 import { ProfileService } from '../../services/profile.service'
 import { ModalConfirmDeleteComponent } from '../modal-confirm-delete/modal-confirm-delete.component'
 import { ModalChangeProfileComponent } from '../modal-change-profile/modal-change-profile.component'
+import { AnalyticsService } from '@full/f-analytics'
+import { AnalyticsMember, DataOfDay } from '../../interfaces/interface'
 
 @Component({
   selector: 'full-profile-page',
@@ -25,17 +27,20 @@ export class ProfilePageComponent implements OnInit {
   	user = null
   	lists = []
   	loading = false
-  	average$: Observable<any>
+  	average: any
     newDate: string
     sle
 
   	image: File
   	imagePreview: string  | ArrayBuffer = ''
 
+    valueMember: AnalyticsMember[] = []
+    dataOfDay: DataOfDay 
+
     fd = new FormData()
   	resData: any
 
-     @ViewChild('input') inputRef: ElementRef
+     @ViewChild('input') inputRef: ElementRef  
 
   	constructor(
       private authService: AuthService,
@@ -56,12 +61,22 @@ export class ProfilePageComponent implements OnInit {
       this.profileService.getProfileData().subscribe(
          ({data}) => {
            this.resData = data
-           console.log(this.resData)
+           // console.log(this.resData)
            this.user = this.resData.getProfileData.user
            this.imagePreview = `http://localhost:3000/${this.user.imageSrc}`
            this.lists = this.resData.getProfileData.members
          }
       )
+
+      this.profileService.getGlobalValue().subscribe(
+        ({data}) => {
+          this.resData = data
+          this.average = this.resData.getAnalyticsData.globalValue
+          this.valueMember = this.resData.getAnalyticsData.valueMembers
+          this.dataOfDay = this.resData.getAnalyticsData.dataOfDay
+          console.log(this.dataOfDay)
+        }
+      )    
     }
 
   ngOnDestroy() {

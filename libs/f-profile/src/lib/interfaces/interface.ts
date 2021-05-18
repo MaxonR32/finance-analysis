@@ -20,3 +20,15 @@ export interface MemberInterface {
 	who: string
 	age: number
 }
+
+export interface AnalyticsMember {
+	member: string
+	profitValue?: number
+    consumValue?: number
+    pourcentConsum?: number
+}
+
+export interface DataOfDay {
+	day: number
+	percentBeforeEndMonth: number
+}

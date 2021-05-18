@@ -7,9 +7,8 @@ import { BProfileModule } from '@full/b-profile'
 import { DateScalar } from '@full/b-auth'
 import { UploadFileModule } from '@full/upload-file'
 import { BListModule } from '@full/b-list'
+import { BAnalyticsModule } from '@full/b-analytics'
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -17,9 +16,10 @@ import { AppService } from './app.service';
   	BAuthModule,
   	BProfileModule,
     UploadFileModule,
-    BListModule
+    BListModule,
+    BAnalyticsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, DateScalar],
+  controllers: [],
+  providers: [DateScalar],
 })
 export class AppModule {}

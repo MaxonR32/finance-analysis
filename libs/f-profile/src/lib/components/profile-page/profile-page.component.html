@@ -19,10 +19,10 @@
 			</div>	
 		</div>
 		
-		<div class="number-data" *ngIf="average$ | async as average; else loader">
-			<p class="num1">{{average.nProfitV}}</p> 
+		<div class="number-data" *ngIf="average">
+			<p class="num1">{{average.globalConsumValue}}</p> 
 			<span class="num1">|</span>
-			<p class="num2">{{average.profitV}}</p>
+			<p class="num2">{{average.globalProfitValue}}</p>
 		</div>
 	</div>
 	<div class="center block">
@@ -63,7 +63,7 @@
 		</div>
 	</div>
 	<div class="block different-data-block">
-		<full-different-data></full-different-data>
+		<full-different-data [valueMember]="valueMember" [dataOfDay]="dataOfDay"></full-different-data>
 	</div>
 </div>
 

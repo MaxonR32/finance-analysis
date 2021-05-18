@@ -10,6 +10,7 @@ import { join } from 'path'
 import { BProfileModule } from '@full/b-profile'
 import { BListModule } from '@full/b-list'
 import { BAuthModule } from '@full/b-auth'
+import { BAnalyticsModule } from '@full/b-analytics'
 
 @Module({
 	imports: [
@@ -25,7 +26,8 @@ import { BAuthModule } from '@full/b-auth'
 			include: [
 				BProfileModule,
 				BListModule,
-				BAuthModule
+				BAuthModule,
+				BAnalyticsModule
 			],
 			autoSchemaFile: true,
 			playground: true,

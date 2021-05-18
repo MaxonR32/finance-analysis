@@ -87,6 +87,27 @@ export class ProfileService {
 			}
 		}
 	`
+
+	getGlobalValueSchema = gql`
+		query  {
+			getAnalyticsData {
+				globalValue {
+					globalProfitValue
+					globalConsumValue
+				}
+				valueMembers {
+					member
+					profitValue
+					consumValue
+					pourcentConsum
+				}
+				dataOfDay {
+					day
+					percentBeforeEndMonth
+				}
+			}
+		}
+	`
 	
 	constructor(
 		private apollo: Apollo,
@@ -143,5 +164,11 @@ export class ProfileService {
 				{query: this.getProfileSDatachema}
 			]
 		})
+	}
+
+	getGlobalValue() {
+		return this.apollo.watchQuery({
+			query: this.getGlobalValueSchema
+		}).valueChanges
 	}
 }

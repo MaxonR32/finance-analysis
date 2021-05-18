@@ -1,1 +1,7 @@
-<p>analytics-page works!</p>
+<ng-container *ngFor="let month of arrCheckMonth">
+	<mat-radio-button *ngIf="month.value <= curentMonth" class="example-margin" (click)="toggle(month.value)">{{month.month}}</mat-radio-button>			
+</ng-container>
+
+<div>
+	<canvas #first></canvas>
+</div>

@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import { ActionInterface } from '@full/f-profile'
 import { Observable } from 'rxjs'
 import { ListService } from '@full/f-list-page'
+import { ProfileService } from '@full/f-profile'
 
 @Injectable({
 	providedIn: 'root'
@@ -14,7 +15,8 @@ export class AddNewService {
 	
 	constructor(
 		private apollo: Apollo,
-		private listService: ListService
+		private listService: ListService,
+		private profileService: ProfileService
 	) {}
 
 	fetchMmeberSchema = gql`
@@ -75,7 +77,8 @@ export class AddNewService {
 			mutation: this.addNewActionSchema,
 			variables: action,
 			refetchQueries: [
-				{query: this.listService.getListSchema}
+				{query: this.listService.getListSchema},
+				{query: this.profileService.getGlobalValueSchema}
 			]
 		})
 	}

@@ -11,7 +11,11 @@ import { RouterModule, Routes } from '@angular/router'
 import { profileRoutes } from '@full/f-profile'
 import { SiteLayoutComponent, siteLayoutRoutes } from '@full/site-layout-component'
 import { AuthGuard } from '@full/auth'
-import { GqlModule } from '@full/gql'
+import { GqlModule } from '@full/gql';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects'
 
 const routes: Routes = [
     {path: '', pathMatch: 'full' ,redirectTo: '/login'},
@@ -28,6 +32,15 @@ const routes: Routes = [
     MaterialModule,
     GqlModule,
     RouterModule.forRoot(routes, {initialNavigation: 'enabled'}),
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     

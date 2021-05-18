@@ -32,7 +32,8 @@
       "@full/f-list-page": ["libs/f-list-page/src/index.ts"],
       "@full/b-list": ["libs/b-list/src/index.ts"],
       "@full/f-analytics": ["libs/f-analytics/src/index.ts"],
-      "@full/b-analytics": ["libs/b-analytics/src/index.ts"]
+      "@full/b-analytics": ["libs/b-analytics/src/index.ts"],
+      "@full/ngrx": ["libs/ngrx/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   			password: new FormControl(null, [Validators.required, Validators.minLength(6)])
   		})
   	}
-
+    
   	get email() {
   		return this.loginForm.get('email')
   	}
@@ -43,10 +43,10 @@ export class LoginComponent implements OnInit {
         ({data}) => {
           this.resData = data
           localStorage.setItem('auth-token', `${this.resData.login.token}`)
-            console.log(data)
             this.authService.setToken(this.resData.token)
             this.router.navigate(['/profile'])
         }, error => {
+          console.log(error)
           this.loginForm.enable()
         }
       )

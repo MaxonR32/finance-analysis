@@ -572,6 +572,31 @@
           }
         }
       }
+    },
+    "ngrx": {
+      "projectType": "library",
+      "root": "libs/ngrx",
+      "sourceRoot": "libs/ngrx/src",
+      "prefix": "full",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngrx/src/**/*.ts",
+              "libs/ngrx/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ngrx"],
+          "options": {
+            "jestConfig": "libs/ngrx/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
